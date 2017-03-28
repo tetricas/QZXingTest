@@ -230,7 +230,7 @@ void BitArray::ensureCapacity(int size)
     {
         ArrayRef<int> newBits = makeArray(size);
         //memcpy(bits, newBits->, bits->size());
-        for (size_t i=0; i<bits->size(); ++i) {
+		for (int i=0; i<bits->size(); ++i) {
             newBits[i] = bits[i];
         }
         bits = newBits;
@@ -252,7 +252,7 @@ void BitArray::xor_(const BitArray& other)
 
 void BitArray::toBytes(int bitOffset, std::vector<byte>& array, int offset, int numBytes) const
 {
-    if(array.size() < (numBytes + offset))
+	if(static_cast<int>(array.size()) < numBytes + offset)
         array.resize(numBytes + offset);
 
     for (int i = 0; i < numBytes; i++) {
@@ -271,7 +271,7 @@ const std::string BitArray::toString() const
 {
     std::stringstream result;// = new StringBuilder(2 * width * height + 2);
 
-    for (size_t i = 0; i < size; i++) {
+	for (int i = 0; i < size; i++) {
       if ((i & 0x07) == 0) {
         result << ' ';
       }

@@ -17,7 +17,7 @@ ReedSolomonEncoder::ReedSolomonEncoder(Ref<GenericGF> field) :
 
 Ref<GenericGFPoly> ReedSolomonEncoder::buildGenerator(int degree)
 {
-    if (degree >= cachedGenerators_.size()) {
+	if (degree >= static_cast<int>(cachedGenerators_.size())) {
         Ref<GenericGFPoly> lastGenerator = cachedGenerators_.at(cachedGenerators_.size() - 1);
         for (int d = cachedGenerators_.size(); d <= degree; d++)
         {
@@ -64,7 +64,7 @@ void ReedSolomonEncoder::encode(std::vector<int> &toEncode, int ecBytes)
 	//toEncode.insert(toEncode.begin() + (dataBytes-1) + numZeroCoefficients,
     //                coefficients.array_->values().begin(),
     //                coefficients.array_->values().end());
-	for (size_t i = 0; i < coefficients.count(); i++)
+	for (int i = 0; i < coefficients.count(); i++)
         toEncode[dataBytes + numZeroCoefficients + i] = coefficients[i];
 }
 

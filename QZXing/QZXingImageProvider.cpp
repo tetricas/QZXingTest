@@ -8,6 +8,8 @@ QZXingImageProvider::QZXingImageProvider() : QQuickImageProvider(QQuickImageProv
 
 QPixmap QZXingImageProvider::requestPixmap(const QString &id, QSize *size, const QSize &requestedSize)
 {
+	Q_UNUSED( size )
+	Q_UNUSED( requestedSize )
     if(id == "latestEncoded")
         return storedPixmap;
     else

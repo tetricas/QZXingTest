@@ -95,10 +95,10 @@ ApplicationWindow
         }
 
         decoder {
-            enabledDecoders: QZXing.DecoderFormat_EAN_13 | QZXing.DecoderFormat_CODE_39 | QZXing.DecoderFormat_QR_CODE
+            enabledDecoders: QZXing.DecoderFormat_QR_CODE
 
-            onTagFound: {
-                console.log(tag + " | " + decoder.foundedFormat() + " | " + decoder.charSet());
+            onTagFoundAdvanced: {
+                console.log(tag + " | " + format + " | " + charSet);
 
                 window.detectedTags++;
                 window.lastTag = tag;

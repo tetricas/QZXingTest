@@ -127,7 +127,7 @@ Ref<BitMatrix> GlobalHistogramBinarizer::getBlackMatrix() {
                 matrix->set(x, y);
             }
         }
-    }
+	}
 
     return matrix;
 }
